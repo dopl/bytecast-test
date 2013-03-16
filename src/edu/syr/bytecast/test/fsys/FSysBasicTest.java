@@ -42,7 +42,7 @@ public class FSysBasicTest implements ITestCase {
         {
             ExeObj mock_exe_obj = mock_fsys.parse();
             
-            product_fsys.setFilepath(Paths.v().getFsysBasicTestPath());
+            product_fsys.setFilepath(Paths.v().getPath("BYTECAST_TEST_FSYS_SIMPLE_TEST_ELF_FILE"));
             ExeObj product_exe_obj = product_fsys.parse();
             
             if(mock_exe_obj.equals(product_exe_obj))
@@ -68,7 +68,12 @@ public class FSysBasicTest implements ITestCase {
     public static void main(String args[])
     {
         FSysBasicTest test = new FSysBasicTest();
-        Paths.v().setRoot("/home/shawn/code/bytecast");
+        Paths.v().setRoot("/home/shawn/code/bytecast");                  
+        try {
+            Paths.v().parsePathsFile("bytecast-common/bytecast-common/cfg/paths.cfg");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         if(test.test())
         {
             System.out.println("Test case passed.");
