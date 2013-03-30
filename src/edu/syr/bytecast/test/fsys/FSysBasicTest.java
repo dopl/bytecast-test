@@ -22,8 +22,9 @@ import edu.syr.bytecast.interfaces.fsys.*;
 import edu.syr.bytecast.test.ITestCase;
 import edu.syr.bytecast.test.mockups.MockBytecastFsys;
 import edu.syr.bytecast.util.Paths;
+import junit.framework.TestCase;
 
-public class FSysBasicTest implements ITestCase {
+public class FSysBasicTest extends TestCase{// implements ITestCase{
 
     
     private String m_message;
@@ -33,12 +34,12 @@ public class FSysBasicTest implements ITestCase {
     // ElfExeObjParser.
     //--------------------------------------------------------------------------
     
-    @Override
-    public boolean test() {
+    //@Override
+    public void testSay() {
 
         IBytecastFsys mock_fsys = new MockBytecastFsys(); //get from somewhere (product/mock)
         IBytecastFsys product_fsys = new ElfExeObjParser();
-        
+
         try
         {
             ExeObj mock_exe_obj = mock_fsys.parse();
@@ -49,7 +50,8 @@ public class FSysBasicTest implements ITestCase {
             if(mock_exe_obj.equals(product_exe_obj))
             {
                 m_message = "Test Case Passed";
-                return true;              
+                assertTrue("passed", true);
+              //  return true;              
             }
             else
             {
@@ -64,25 +66,27 @@ public class FSysBasicTest implements ITestCase {
                 m_message += "\n Num Segments: " + product_exe_obj.getSegments().size();
                 m_message += "\n Num Functions: " + product_exe_obj.getFunctions().size();
                 m_message += "\n Hash: " + product_exe_obj.hashCode();                                            
-                
-                return false;
+                assertTrue("Does Not Match Mock Obj", false);
+              //  return false;
             }
         }
         catch(Exception e)
         {    
-            return false;
-        }       
+            assertTrue("Cantopenfile", false);
+          //  return false;
+        }      
+        
     }
 
-    @Override
+   //@Override
     public String getMessage() {
         return m_message;
     }
     
-    public static void main(String args[])
+   /* public void main(String args[])
     {
         FSysBasicTest test = new FSysBasicTest();
-        Paths.v().setRoot("/home/shawn/code/bytecast");                  
+        Paths.v().setRoot("../../../code/bytecast");                  
         try {
             Paths.v().parsePathsFile();
         } catch (Exception e) {
@@ -91,5 +95,5 @@ public class FSysBasicTest implements ITestCase {
         test.test();
         System.out.println(test.getMessage());
         
-    }
+    }*/
 }

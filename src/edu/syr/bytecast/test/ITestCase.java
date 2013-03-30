@@ -18,7 +18,8 @@
 
 package edu.syr.bytecast.test;
 
-public interface ITestCase {
+
+public interface ITestCase{
 
   public boolean test();
   public String getMessage();

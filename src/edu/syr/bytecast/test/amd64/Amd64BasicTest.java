@@ -19,12 +19,13 @@
 package edu.syr.bytecast.test.amd64;
 import edu.syr.bytecast.test.ITestCase;
 import edu.syr.bytecast.util.Paths;
+import junit.framework.TestCase;
 
-public class Amd64BasicTest implements ITestCase {
+public class Amd64BasicTest extends TestCase implements ITestCase {
     
     @Override
     public boolean test() {
-
+       assertTrue("passed", true);
        return true;
     }
 
