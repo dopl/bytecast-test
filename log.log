@@ -1,0 +1,67 @@
+Buildfile: /home/adodds/code/bytecast/bytecast-test/build.cob.xml
+Trying to override old definition of task javac
+
+init:
+     [echo] init
+   [delete] Deleting: /home/adodds/code/bytecast/bytecast-test/cobertura.ser
+   [delete] Deleting directory /home/adodds/code/bytecast/bytecast-test/build/instrumented
+   [delete] Deleting directory /home/adodds/code/bytecast/bytecast-test/build/reports/junit-xml
+   [delete] Deleting directory /home/adodds/code/bytecast/bytecast-test/build/reports/junit-html
+    [mkdir] Created dir: /home/adodds/code/bytecast/bytecast-test/build/instrumented
+    [mkdir] Created dir: /home/adodds/code/bytecast/bytecast-test/build/instrumented/lib
+    [mkdir] Created dir: /home/adodds/code/bytecast/bytecast-test/build/instrumented/lib/lib
+    [mkdir] Created dir: /home/adodds/code/bytecast/bytecast-test/build/reports/junit-xml
+    [mkdir] Created dir: /home/adodds/code/bytecast/bytecast-test/build/reports/junit-html
+
+compile:
+     [echo] compile
+
+instrument:
+     [echo] add src
+[cobertura-instrument] Cobertura 1.9.4.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[cobertura-instrument] Instrumenting 4 files to /home/adodds/code/bytecast/bytecast-test/build/instrumented
+[cobertura-instrument] Cobertura: Saved information on 4 classes.
+[cobertura-instrument] Instrument time: 149ms
+     [echo] add src
+[cobertura-instrument] Cobertura 1.9.4.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[cobertura-instrument] Cobertura: Loaded information on 4 classes.
+[cobertura-instrument] Instrumenting 37 files to /home/adodds/code/bytecast/bytecast-test/build/instrumented
+[cobertura-instrument] Cobertura: Saved information on 41 classes.
+[cobertura-instrument] Instrument time: 1372ms
+     [echo] add src
+[cobertura-instrument] Cobertura 1.9.4.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[cobertura-instrument] Cobertura: Loaded information on 41 classes.
+[cobertura-instrument] Instrumenting 18 files to /home/adodds/code/bytecast/bytecast-test/build/instrumented
+[cobertura-instrument] Cobertura: Saved information on 59 classes.
+[cobertura-instrument] Instrument time: 1177ms
+[cobertura-instrument] Cobertura 1.9.4.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[cobertura-instrument] Cobertura: Loaded information on 59 classes.
+[cobertura-instrument] Instrumenting 110 files to /home/adodds/code/bytecast/bytecast-test/build/instrumented
+[cobertura-instrument] Cobertura: Saved information on 169 classes.
+[cobertura-instrument] Instrument time: 4247ms
+
+test:
+[junitreport] Processing /home/adodds/code/bytecast/bytecast-test/build/reports/junit-xml/TESTS-TestSuites.xml to /tmp/null1238104173
+[junitreport] Loading stylesheet jar:file:/usr/share/ant/lib/ant-junit.jar!/org/apache/tools/ant/taskdefs/optional/junit/xsl/junit-frames.xsl
+[junitreport] Transform time: 1763ms
+[junitreport] Deleting: /tmp/null1238104173
+
+coverage-report:
+[cobertura-report] Cobertura 1.9.4.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[cobertura-report] Cobertura: Loaded information on 169 classes.
+[cobertura-report] Report time: 2696ms
+
+summary-coverage-report:
+[cobertura-report] Cobertura 1.9.4.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[cobertura-report] Cobertura: Loaded information on 169 classes.
+[cobertura-report] Report time: 831ms
+
+alternate-coverage-report:
+[cobertura-report] Cobertura 1.9.4.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[cobertura-report] Cobertura: Loaded information on 169 classes.
+[cobertura-report] Report time: 1613ms
+
+coverage:
+
+BUILD SUCCESSFUL
+Total time: 19 seconds

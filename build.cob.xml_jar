@@ -32,8 +32,6 @@
 		-->
 		<delete file="cobertura.ser"/>
 		<delete dir="${instrumented.dir}" />
-		<delete dir="${reports.xml.dir}" />
-		<delete dir="${reports.html.dir}" />
 		<mkdir dir="${classes.dir}" />
 		<mkdir dir="${instrumented.dir}" />
     <mkdir dir="${instrumented.dir}/lib" />
@@ -58,6 +56,41 @@
 			Instrument the application classes, writing the
 			instrumented classes into ${build.instrumented.dir}.
 		-->
+    <echo message="add libs"/>
+    <cobertura-instrument todir="${instrumented.dir}/lib/lib">
+			<fileset dir="../bytecast-common/bytecast-common/dist/lib">
+				<!--
+					Instrument all the application classes, but
+					don't instrument the test classes.
+				-->
+				<include name="**/*.jar" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+		 </cobertura-instrument>
+
+
+		<cobertura-instrument todir="${instrumented.dir}/lib">
+			<fileset dir="../bytecast-common/bytecast-common/dist">
+				<!--
+					Instrument all the application classes, but
+					don't instrument the test classes.
+				-->
+				<include name="**/*.jar" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+		 </cobertura-instrument>
+
+    <cobertura-instrument todir="${instrumented.dir}/lib">
+			<fileset dir="../bytecast-fsys/dev/bytecast.fsys/dist">
+				<!--
+					Instrument all the application classes, but
+					don't instrument the test classes.
+				-->
+				<include name="**/*.jar" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+    </cobertura-instrument>
+
     
     <echo message="add src"/>
 		<cobertura-instrument todir="${instrumented.dir}">
@@ -76,51 +109,7 @@
 				<include name="**/*.class" />
 				<exclude name="**/*Test.class" />
 			</fileset>
-      </cobertura-instrument>
-<echo message="add src"/>
-	    <cobertura-instrument todir="${instrumented.dir}">
-			<fileset dir="../bytecast-common/bytecast-common/build/classes">
-				<!--
-					Instrument all the application classes, but
-					don't instrument the test classes.
-				-->
-				<include name="**/*.class" />
-				<exclude name="**/*Test.class" />
-			</fileset>
-      </cobertura-instrument>
-<echo message="add src"/>
-	    <cobertura-instrument todir="${instrumented.dir}">
-			<fileset dir="../bytecast-fsys/dev/bytecast.fsys/build/classes">
-				<!--
-					Instrument all the application classes, but
-					don't instrument the test classes.
-				-->
-				<include name="**/*.class" />
-				<exclude name="**/*Test.class" />
-			</fileset>
-      </cobertura-instrument>
-
-	    <cobertura-instrument todir="${instrumented.dir}">
-			<fileset dir="../bytecast-amd64/bytecast-amd64/build/classes">
-				<!--
-					Instrument all the application classes, but
-					don't instrument the test classes.
-				-->
-				<include name="**/*.class" />
-				<exclude name="**/*Test.class" />
-			</fileset>
-      </cobertura-instrument>
-
-	    <!--<cobertura-instrument todir="${instrumented.dir}">
-			<fileset dir="../bytecast-jimple/bytecast-jimple/build/classes">
-				
-					Instrument all the application classes, but
-					don't instrument the test classes.
-				
-				<include name="**/*.class" />
-				<exclude name="**/*Test.class" />
-			</fileset>
-	  </cobertura-instrument>-->
+	  </cobertura-instrument>
 
 	</target>
 
