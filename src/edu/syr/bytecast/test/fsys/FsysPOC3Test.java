@@ -21,9 +21,10 @@ import edu.syr.bytecast.fsys.elf.*;
 import edu.syr.bytecast.interfaces.fsys.*;
 import edu.syr.bytecast.test.ITestCase;
 import edu.syr.bytecast.test.mockups.MockBytecastFsys;
+import edu.syr.bytecast.test.mockups.MockBytecastFsysPoc3;
 import edu.syr.bytecast.util.Paths;
 
-public class FSysBasicTest implements ITestCase {
+public class FsysPOC3Test implements ITestCase {
 
     
     private String m_message;
@@ -36,14 +37,14 @@ public class FSysBasicTest implements ITestCase {
     @Override
     public boolean test() {
 
-        IBytecastFsys mock_fsys = new MockBytecastFsys(); //get from somewhere (product/mock)
+        IBytecastFsys mock_fsys = new MockBytecastFsysPoc3(); //get from somewhere (product/mock)
         IBytecastFsys product_fsys = new ElfExeObjParser();
         
         try
         {
             ExeObj mock_exe_obj = mock_fsys.parse();
             
-            product_fsys.setFilepath(Paths.v().getPath("BYTECAST_TEST_FSYS_SIMPLE_TEST_ELF_FILE"));
+            product_fsys.setFilepath(Paths.v().getPath("BYTECAST_TEST_FSYS_POC3_TEST_ELF_FILE"));
             ExeObj product_exe_obj = product_fsys.parse();
             
             if(mock_exe_obj.equals(product_exe_obj))
@@ -81,7 +82,7 @@ public class FSysBasicTest implements ITestCase {
     
     public static void main(String args[])
     {
-        FSysBasicTest test = new FSysBasicTest();
+        FsysPOC3Test test = new FsysPOC3Test();
         Paths.v().setRoot("/home/shawn/code/bytecast");                  
         try {
             Paths.v().parsePathsFile();
